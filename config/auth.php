@@ -46,15 +46,17 @@ return [
             'provider' => 'users',
         ],
 
-        'users' => [
+        'user' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
 
-        'admins' => [
+        'admin' => [
             'driver' => 'session',
-            'provider' => 'admin',
+            'provider' => 'users',
         ],
+
+        
     ],
 
     /*

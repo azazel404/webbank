@@ -1,0 +1,146 @@
+header .top {
+	padding:5px 0;
+	margin:0;
+	background: #17479e;
+}
+.search-data{
+  background-color:red ;
+  padding-bottom: 50px;
+  color: white;
+}
+
+.invalid-feedback{
+	display: block;
+
+}
+
+.main-nav {
+  background: #fff;
+  z-index: 150;
+}
+
+#mainNav .navbar-toggler {
+  font-size: 12px;
+  right: 0;
+  padding: 10px;
+  text-transform: uppercase;
+  color: white;
+  border: 0;
+  background-color: #fed136;
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.main-nav-scrolled {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+.openword {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+.body-carousel{
+	margin-top: 5px;
+	width: 100%;
+	height: 300px !important;
+
+
+}
+
+
+.tab-content > .tab-pane{
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-top-color : transparent;
+}
+
+
+/* --- Image allignment style --- */
+
+img.img-size-left, .align-left{
+  float:left;
+  width: 20%;
+  padding-bottom: 5px;
+	margin:0 15px 15px 0;
+}
+
+/* .widget img.img-size-left {
+	float:left;
+	margin:0 15px 15px 0;
+} */
+
+img.img-size-right, .align-right {
+	float:right;
+	margin:0 0 15px 15px;
+}
+
+article img.img-size-left, article .align-left{
+	float:left;
+	margin:5px 15px 15px 0;
+}
+
+article img.img-size-right, article .align-right{
+	float:right;
+	margin:5px 0 15px 15px;
+}
+
+.tampil-bg{
+  background: white;
+}
+
+.dropdown-toggle::after {
+    display:none
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+@media (min-width:260px) and (max-width:760px) {
+	.text-responsive{
+		text-align: center;
+	}
+}
+.penghargaan{
+	text-align: center !important;
+}
+
+/* create slide up in blog  */
+.box {
+  height: 300px;
+  width: 200px;
+  overflow: hidden;
+
+	background-image: url("/img/blog-1.jpg");
+
+}
+
+.hid-box {
+  top: 70%;
+  position: relative;
+  transition: all .3s ease-out;
+  background: yellow;
+  height: 100%;
+}
+
+.box:hover > .hid-box{
+  top: 0;
+}

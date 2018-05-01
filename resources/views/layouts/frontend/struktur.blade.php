@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="google-site-verification" content="Y2tfukwv9bBQvPfLjsH66Ro5fIgPuhFf68NhUc7Jos8"/>
   <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bank @yield('title')</title>
     <link rel="shortcut icon" href="https://bprad.com/favicon.ico" />
 
@@ -22,7 +23,6 @@
     <!-- Custom styles for this template -->
     @yield('styles')
     @stack('pageRelatedCss')
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
   <body>
   @yield('body')
@@ -32,10 +32,13 @@
   <script src="{{ asset('assets/jquery/jquery.slim.min.js') }}"></script>
 
     <!-- Bootstrap core JavaScript -->
+
     <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
     <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+
 
     <!-- Plugin JavaScript -->
     <script src="{{ asset('assets/jquery-easing/jquery.easing.min.js') }}"></script>
@@ -43,8 +46,6 @@
     <script src="{{ asset('assets/js/jqBootstrapValidation.min.js')}}"></script>
     <!-- Custom scripts for this template -->
     <script src="{{ asset('assets/js/agency.js') }}"></script>
-
-@stack('PageRelatedJs')
   </body>
-
+@stack('PageRelatedJs')
 </html>

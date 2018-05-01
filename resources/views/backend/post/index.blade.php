@@ -1,4 +1,5 @@
 @extends('layouts.backend.struktur')
+@extends('layouts.datatables.datatables')
 @section('title', '| Index')
 
 @section('body')
@@ -15,6 +16,7 @@
             <ul class="breadcrumb">
               <li class="breadcrumb-item"><a href="index.html">Home</a></li>
               <li class="breadcrumb-item active">Tables</li>
+                <li class="breadcrumb-item active">Article</li>
             </ul>
           </div>
       </div>
@@ -33,41 +35,88 @@
                     </div>
                     <div class="card-body">
                       <div class="table-responsive ">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" id="post-table">
                           <thead>
                          <tr>
-                            <th>No</th>
+                            <th>Date Created</th>
                             <th>Title</th>
-                            <th>Content</th>
+                            <!-- <th>Content</th> -->
                             <th>Category</th>
                             <th>Tipe Post</th>
-                            <th>Date Created</th>
-                            <th colspan="2" style="text-align:center">Action</th>
+                            <th>Author</th>
+                            <th style="text-align:center">Action</th>
                           </tr>
                           </thead>
                           <tbody>
-					        @foreach ($posts as $post)
-                        <tr>
-                          <th>{{ $post->id }}</th>
-                          <td>{{ substr($post->title, 0, 30) }}{{ strlen($post->title) > 30 ? "..." : "" }}</td>
-                          <td>{!! substr($post->content, 0, 30) !!}{{ strlen($post->content) > 30 ? "..." : "" }}</td>
-                          <td>{{ $post->category }}</td>
-                          <td>{{ $post->post_type }}</td>
-                          <td>{{ date('M  j- Y', strtotime($post->created_at)) }}</td>
-                          <td><a href="{{ route('adminpost.edit', $post->id) }}" class="btn btn-default btn-sm">Edit</a></td>
-                          <td><a href="javascript:void(0)" id="btnDelete" data-toggle="modal" class="btn btn-default btn-sm" data-id="{{$post->id}}">delete</a></td>
-                        </tr>
-					        @endforeach
 				                </tbody>
                         </table>
                       </div>
-                      <div class="text-center">
-				              {!! $posts->links(); !!}
-			                </div>
                     </div>
                   </div>
                 </div>
       </section>
-@include('includes.modal_delete_table')
+      <div class="modal fade" id="modalDelete">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure to delete this post ?</p>
+              <form action="{{route('adminpost.delete')}}" method="post">
+                  {{csrf_field()}}
+                  <input id="idPost" type="hidden" name="id" value="">
+            </div>
+            <div class="modal-footer">
+              <a href="javascript:void(0)" class="btn btn-default" data-dismiss="modal">Close</a>
+              <button type="submit" class="btn btn-primary">Yes sure.</button>
+              </form>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
 @include('includes.backend.dashboard.footer')
+@push('pageRelatedJs')
+@if (Session::has('notifier.notice'))
+        <script>
+            new PNotify({!! Session::get('notifier.notice','success') !!});
+        </script>
+    @endif
+	<script>
+
+  $(document).on('click', '#btnDelete', function(){
+
+    //send data id ke form modal
+    $('#idPost').val($(this).data('id'));
+
+    //munculin modal
+    $('#modalDelete').modal('show');
+  });
+
+
+		$(document).ready(function(){
+			var table = $('#post-table').DataTable({
+				processing: true,
+				serverSide: true,
+				ajax: {
+					headers: {
+						'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					},
+					url: '{!! route('adminpost.ajax') !!}',
+					type: 'POST'
+				},
+				columns: [
+					{ data: 'created_at', name: 'created_at' },
+					{ data: 'title', name: 'title' },
+					{ data: 'category', name: 'category' },
+					{ data: 'post_type', name: 'post_type' },
+					{ data: 'author', name: 'author' },
+					{ data: 'action', name: 'action' },
+				]
+			});
+			$(table.table().container()).removeClass( 'form-inline');
+		});
+	</script>
+@endpush
 @endsection

@@ -8,49 +8,111 @@
       <!-- Page Header-->
       <header class="page-header">
         <div class="container-fluid">
-          <h2 class="no-margin-bottom">Dashboard</h2>
+          <h2 class="no-margin-bottom">Tarif Suku Bunga</h2>
         </div>
       </header>
       <div class="card-header d-flex align-items-center">
-        <h3 class="h4"><a href="{{ route('adminpost.create') }}">Table Post</a></h3>
+         <div class="breadcrumb-holder container-fluid">
+            <ul class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active">Tables</li>
+                <li class="breadcrumb-item active">Tarif Suku Bunga</li>
+            </ul>
+          </div>
       </div>
-      <div class="card-body">
-        <div class="table-responsive table-bordered datatable dataTable" id="post-table" width="100%">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-              </tr>
-            </thead>
-          </table>
-        </div>
-      </div>
+      <section class="tables">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-12" >
+                  <div class="card">
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Tarif Suku Bunga Table</h3>
+                          <div class="actions ml-auto">
+                              <a href="{{ route('admintarif.create') }}" title="New Post" data-toggle="tooltip" data-placement="left" class="btn btn-lg">
+                              <span class="fas fa-plus-circle entypo-plus"></span>
+                              </a>
+                          </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive ">
+                        <table class="table table-bordered" id="tarif-table">
+                          <thead>
+                         <tr>
+                            <th>No</th>
+                            <th>Keterangan</th>
+                            <th>Rate</th>
+                            <th>Date Created</th>
+                            <th>Date Update</th>
+                            <th style="text-align:center">Action</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+				                </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
       </section>
+      <div class="modal fade" id="modalDelete">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure to delete this post ?</p>
+              <form action="{{route('admintarif.delete')}}" method="post">
+                  {{csrf_field()}}
+                  <input id="idTarif" type="hidden" name="id" value="">
+            </div>
+            <div class="modal-footer">
+              <a href="javascript:void(0)" class="btn btn-default" data-dismiss="modal">Close</a>
+              <button type="submit" class="btn btn-primary">Yes sure.</button>
+              </form>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
 @include('includes.backend.dashboard.footer')
-@endsection
 @push('pageRelatedJs')
+@if (Session::has('notifier.notice'))
+        <script>
+            new PNotify({!! Session::get('notifier.notice') !!});
+        </script>
+    @endif
 	<script>
+
+  $(document).on('click', '#btnDelete', function(){
+    //send data id ke form modal
+    $('#idTarif').val($(this).data('id'));
+
+    //munculin modal
+    $('#modalDelete').modal('show');
+  });
+
 		$(document).ready(function(){
-			var table = $('#post-table').DataTable({
+			var table = $('#tarif-table').DataTable({
 				processing: true,
 				serverSide: true,
 				ajax: {
 					headers: {
 						'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 					},
-					url: '{!! route('adminpost.ajax') !!}',
+					url: '{!! route('admintarif.ajax') !!}',
 					type: 'POST'
 				},
 				columns: [
 					{ data: 'id', name: 'id' },
-					{ data: 'question', name: 'question' },
-					{ data: 'answer', name: 'answer' },
-					{ data: 'urut', name: 'urut' },
-					{ data: 'status', name: 'status' },
-					{ data: 'type', name: 'type' },
+					{ data: 'keterangan', name: 'keterangan' },
+					{ data: 'rate', name: 'rate',
+          render: function (data, type, row) {
+                  return data + '%' ;
+              }
+             },
+          { data: 'created_at', name: 'created_at' },
+          { data: 'updated_at', name: 'updated_at' },
 					{ data: 'action', name: 'action' },
 				]
 			});
@@ -58,3 +120,4 @@
 		});
 	</script>
 @endpush
+@endsection

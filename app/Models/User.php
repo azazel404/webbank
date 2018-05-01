@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -26,4 +27,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+
+    public function isAdmin(){
+      if($this->role == 2 ) return true;
+      return false;
+    }
+
+    public function biodata(){
+      return $this->hasOne('App\Models\Biodata');
+    }
+
 }

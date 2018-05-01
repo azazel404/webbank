@@ -16,7 +16,7 @@ class CreateTarifsTable extends Migration
         Schema::create('tarifs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('keterangan');
-            $table->mediumInteger('Rate');
+            $table->float('rate',10,2);
             $table->timestamps();
         });
     }

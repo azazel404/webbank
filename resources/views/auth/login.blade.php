@@ -25,7 +25,7 @@
                     <p>{{$error}}</p>
                   @endforeach
                 @endif
-                <form  class="form-validate" method="POST" action="{{ route('login') }}">
+                <form  class="form-validate" method="POST" action="{{ route('login.submit') }}">
                    {{ csrf_field() }}
                   <div class="form-group">
                     <input id="email" type="text" name="email" required data-msg="Please enter your username"  value="{{ old('email') }}" class="input-material">
@@ -39,7 +39,7 @@
                     <input id="remember-me" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}  class="checkbox-template">
                     <label for="remember-me">Remember Me</label>
                   </div>
-                  <button class="btn btn-primary btn-block" type="submit" name="login">{{ __('Login') }}</button>
+                  <button class="btn btn-warning btn-block" type="submit" name="login" style="color:white;">{{ __('Login') }}</button>
                 </form>
                 <a href="{{ route('password.request') }}" class="forgot-pass">{{ __('Forgot Your Password?') }}</a><br><small>Do not have an account? </small><a href="{{ route('register') }}" class="signup">{{ __('Register Here !') }}</a>
               </div>

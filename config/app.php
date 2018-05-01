@@ -151,6 +151,13 @@ return [
          * Package Service Providers...
          */
          Collective\Html\HtmlServiceProvider::class,
+         Yajra\DataTables\DataTablesServiceProvider::class,
+         Jleon\LaravelPnotify\NotifyServiceProvider::class,
+         Maatwebsite\Excel\ExcelServiceProvider::class,
+         Intervention\Image\ImageServiceProvider::class,
+
+
+
 
         /*
          * Application Service Providers...
@@ -211,8 +218,15 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'admin' => \App\Http\Middleware\IsAdmin::class,
-        
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'Notify' => Jleon\LaravelPnotify\Notify::class,
+        'Image' => Intervention\Image\Facades\Image::class
+
+
+
+
+
+
 
 
     ],

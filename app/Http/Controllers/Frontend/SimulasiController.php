@@ -4,74 +4,104 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Post;
+use DB;
 class SimulasiController extends Controller
 {
 
 
     public function create()
     {
-        return view('frontend.simulasi.form');
+        $simulasi = DB::table('posts')->select('category')->paginate(5);
+        return view('frontend.simulasi.form',compact('simulasi'));
     }
 
     public function store(Request $request){
 
-    $jenis =  $request->jenis_bunga;
-    $plafond = $request->plafond_kredit;
-    $waktu = $request->jangka_waktu;
-    $bunga = $request->suku_bunga;
-    $tglcair = $request->tgl_cair;
+        $jenis =  $request->jenis_bunga;
+        $plafond = $request->plafond_kredit;
+        $waktu = $request->jangka_waktu;
+        $bunga = $request->suku_bunga;
+        $tglcair = $request->input('tglcair');
 
-      //untuk hitung total cicilan
-      $total_cicilan = ($plafond * ($bunga/100)) + $plafond;
-      //untuk hitung total bunga
-      $total_bunga   = $plafond * ($bunga/100);
+        //untuk hitung total cicilan
+        $total_cicilan = ($plafond * ($bunga/100)) + $plafond;
+        //untuk hitung total bunga
+        $total_bunga   = $plafond * ($bunga/100);
 
-      //untuk hitung cicilan perbulan setahun
-      $cicilanbulan  = $total_cicilan / $waktu;
+        //untuk hitung cicilan perbulan setahun
+        $cicilanbulan  = ($total_cicilan / $waktu);
+        //untuk hitung bunga perbulan setahun
+        $bungaperbulan = $total_bunga / $waktu;
+        //hitung bagian table jumlah cicilan
+        $jumlahCicilan = round($plafond / $waktu);
+        //hitung bagian table cicilan bunga
+        $cicilanBunga  = round($bungaperbulan + ($bungaperbulan / 11));
+        $cicilandata = round($cicilanbulan - $bungaperbulan);
+        //hitung smua table total smua cicilan
+        $totalcicilansemua = round($jumlahCicilan + $cicilanBunga);
 
-      //untuk hitung bunga perbulan setahun
-      $bungaperbulan = $total_bunga / $waktu;
-      //hitung bagian table jumlah cicilan
-      $jumlahCicilan = round($plafond / $waktu);
-      //hitung bagian table cicilan bunga
-      $cicilanBunga  = round($bungaperbulan + ($bungaperbulan / 11));
-      //hitung smua table total smua cicilan
-      $totalcicilansemua = round($jumlahCicilan + $cicilanBunga);
 
-      $output = "";
-      $no = 1;
+        if($request->jenis_bunga === 'Flat In Area'){
 
-      for ($i=0; $i <= $waktu; $i++) {
-          $tgl_cair = strtotime("+$i month", strtotime($tglcair));
+                          $output = "";
+                          $no = 1;
 
-            if ($i){
-              $plafond -= $cicilanBunga + $jumlahCicilan;
-            }else{
+                      for ($i=0; $i <= $waktu; $i++) {
+                          $tgl_cair = strtotime("+$i month", strtotime($tglcair));
+                            if($i) $plafond -= $cicilanBunga + $jumlahCicilan;
+                            if ($plafond < 0) break;
 
-            }
+                            $output .= "<tr>";
+                            $output .= "<td>".$no++."</td>";
+                            $output .= "<td>".date('Y-m-d',$tgl_cair)."</td>";
+                            $output .= "<td>".number_format($plafond,2)."</td>";
+                            $output .= "<td>".number_format($jumlahCicilan,2)."</td>";
+                            if($i){
+                            $output .= "<td>".number_format($cicilanBunga,2)."</td>";
+                            }else{
+                            $output .= "<td>0</td>";
+                            }
+                            $output .= "<td>".number_format($totalcicilansemua,2)."</td>";
+                            $output .= "</tr>";
+                      }
 
-            if ($plafond < 0) break;
+        }
+        elseif ($request->jenis_bunga === 'Flat In Advanced') {
 
-            $output .= "<tr>";
-            $output .= "<td>".$no++."</td>";
-            $output .= "<td>".date('Y-m-d',$tgl_cair)."</td>";
-            $output .= "<td>".$plafond."</td>";
+                          $output = "";
+                          $no = 1;
 
-            if ($i){
-              "<td>".$totalcicilansemua."</td>";
-            }else{
-              $output .= "<td>".$jumlahCicilan."</td>";
-            }
+                      for ($i=0; $i <= $waktu; $i++) {
+                          $tgl_cair = strtotime("+$i month", strtotime($tglcair));
+                            if($i) $plafond -= $cicilanBunga + $jumlahCicilan;
+                            if ($plafond < 0) break;
 
-            if ($i){
-              $output .= "<td>".$cicilanBunga."</td>";
-            }else{
-              $output .= "<td>0</td>";
-            }
+                            $output .= "<tr>";
+                            $output .= "<td>".$no++."</td>";
+                            $output .= "<td>".date('Y-m-d',$tgl_cair)."</td>";
+                            $output .= "<td>".number_format($plafond,2)."</td>";
+                            $output .= "<td>".number_format($jumlahCicilan,2)."</td>";
+                            if($i){
+                            $output .= "<td>".number_format($cicilanBunga,2)."</td>";
+                            }else{
+                            $output .= "<td>0</td>";
+                            }
+                            $output .= "<td>".number_format($totalcicilansemua,2)."</td>";
+                            $output .= "</tr>";
+                      }
 
-            $output .= "<td>".$totalcicilansemua."</td>";
-            $output .= "</tr>";
-            }
-      return view('frontend.simulasi.success', $output);
-    }
+        }
+
+              return view('frontend.simulasi.success')->with([
+                  'jenis' => $jenis,
+                  'bunga' => $bunga,
+                  'tglcair' => $tglcair,
+                  'total_cicilan' => $total_cicilan,
+                  'total_bunga' => $total_bunga,
+                  'cicilanbulan' => $cicilanbulan,
+                  'bungaperbulan' => $bungaperbulan,
+                  'output' => $output
+              ]);
+          }
 }

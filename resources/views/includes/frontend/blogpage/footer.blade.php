@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-4">
         <div class="logo">
-          <h6 class="text-white">Bank Agha Dhana</h6>
+          <h6 class="text-white">Bank Agra Dhana</h6>
         </div>
         <div class="contact-details">
           <p>Alamat: Komp. Nagoya City Centre blok E No.12, Lubuk Baja,

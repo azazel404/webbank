@@ -9,7 +9,6 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\RedirectsUsers;
 use Illuminate\Validation\ValidationException;
 
-
 class LoginController extends Controller
 {
     /*
@@ -37,10 +36,11 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest')->except('logout');
+    //     //ini
+    // }
 
     /**
      * Show the application's login form.
@@ -50,6 +50,16 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         return view('auth.login');
+    }
+
+
+
+    protected function validateLogin(Request $request)
+    {
+        $this->validate($request, [
+            $this->username() => 'required|string|email',
+            'password' => 'required|string',
+        ]);
     }
 
     public function login(Request $request)
@@ -84,18 +94,22 @@ class LoginController extends Controller
       );
   }
 
-  protected function validateLogin(Request $request)
+  /**
+   * Get the login username to be used by the controller.
+   *
+   * @return string
+   */
+  public function username()
   {
-      $this->validate($request, [
-          $this->username() => 'required|string|email',
-          'password' => 'required|string',
-      ]);
+      return 'email';
   }
 
   protected function credentials(Request $request)
   {
     return $request->only($this->username(), 'password');
   }
+
+
 
   protected function sendLoginResponse(Request $request)
   {
@@ -116,7 +130,7 @@ class LoginController extends Controller
    */
   protected function authenticated(Request $request, $user)
   {
-      //
+
   }
 
   /**
@@ -134,15 +148,7 @@ class LoginController extends Controller
       ]);
   }
 
-  /**
-   * Get the login username to be used by the controller.
-   *
-   * @return string
-   */
-  public function username()
-  {
-      return 'email';
-  }
+
 
   /**
    * Log the user out of the application.
@@ -150,14 +156,7 @@ class LoginController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function logout(Request $request)
-  {
-      $this->guard()->logout();
 
-      $request->session()->invalidate();
-
-      return redirect('/');
-  }
 
   /**
    * Get the guard to be used during authentication.
@@ -167,6 +166,15 @@ class LoginController extends Controller
   protected function guard()
   {
       return Auth::guard();
+  }
+
+  public function logout(Request $request)
+  {
+      $this->guard()->logout();
+
+      $request->session()->invalidate();
+
+      return redirect()->route('tampil.index');
   }
 
 }

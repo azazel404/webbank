@@ -378,7 +378,7 @@ nav.side-navbar a {
 }
 
 nav.side-navbar a[data-toggle="collapse"]::before {
-  content: '\f104';
+
   display: inline-block;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -392,9 +392,9 @@ nav.side-navbar a[aria-expanded="true"] {
   background: #EEF5F9;
 }
 
-nav.side-navbar a[aria-expanded="true"]::before {
+/* nav.side-navbar a[aria-expanded="true"]::before {
   content: '\f107';
-}
+} */
 
 nav.side-navbar a i {
   font-size: 1.2em;
@@ -1920,7 +1920,7 @@ select option {
 }
 
 .login-page .form-holder .info {
-  background: rgba(121, 106, 238, 0.9);
+  background: #D1F110;
   color: #fff;
 }
 
@@ -2016,8 +2016,8 @@ STYLE SWITCHER FOR DEMO
   color: #495057;
 }
 
-/* ========================================= 
-   THEMING OF BOOTSTRAP COMPONENTS           
+/* =========================================
+   THEMING OF BOOTSTRAP COMPONENTS
    ========================================= */
 /*
  * 1. NAVBAR
@@ -2702,7 +2702,7 @@ STYLE SWITCHER FOR DEMO
 }
 
 /*
- * 3. TYPE  
+ * 3. TYPE
  */
 body {
   font-family: "Poppins", sans-serif;

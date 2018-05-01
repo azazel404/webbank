@@ -3,17 +3,19 @@
 @section('title', '| Post')
 @section('body')
 @include('includes.frontend.blogpage.navbar')
-<div class="container">
-  <div class="row">
+<body class= "tampil-bg">
+  <div class="container ">
+  <div class="row ">
     <!-- Latest Posts -->
     <main class="post blog-post col-lg-8">
-      <form>
+      <h1>Simulasi Kredit</h1>
+      <form method="POST" action="{{ route('simulasi.store') }}">
+        {{ csrf_field() }}
         <div class="form-group">
     <label for="jenis_bunga">Jenis Bunga</label>
     <select  name="jenis_bunga" class="form-control" id="jenis_bunga">
       <option>Flat In Area</option>
       <option>Flat In Advanced</option>
-      <option>Flat In Menurun</option>
     </select>
   </div>
   <div class="form-group">
@@ -31,13 +33,47 @@
     <input type="text" class="form-control" name="suku_bunga" id="suku_bunga" placeholder="suku bunga">
   </div>
   <div class="form-group">
-    <label for="tgl_cair">Tanggal Cair</label>
-    <input type="date" class="form-control" id="tgl_cair" aria-describedby="tgl_cair" placeholder="Tanggal Cair">
-    <small id="tgl_cair" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <label for="tglcair">Tanggal Cair</label>
+    <input type="date" class="form-control" id="tglcair" name="tglcair" aria-describedby="tgl_cair" placeholder="Tanggal Cair">
+    <small id="tglcair" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <button type="submit" class="btn btn-primary">Hitung </button>
 </form>
     </main>
-      @include('includes.frontend.blogpage.aside')
+              <aside class="col-lg-4">
+                <!-- Widget [Search Bar Widget]-->
+                <div class="widget search">
+                      <header>
+                        <h3 class="h6">Search the blog</h3>
+                      </header>
+                      <form action="{{url('/blog/search')}}" class="search-form" method="POST">
+                      {{csrf_field()}}
+                        <div class="form-group">
+                          <input type="search"  name="search"  placeholder="What are you looking for?">
+                          <button type="submit" class="submit"><i class="icon-search"></i></button>
+                        </div>
+                      </form>
+                    </div>
+
+                <!-- Widget [Categories Widget]-->
+                <div class="widget categories">
+                  <header>
+                    <h3 class="h6">Categories</h3>
+                  </header>
+                  @foreach($simulasi as $simulasidata)
+                  <div class="item d-flex justify-content-between"><a href="#">{!! $simulasidata->category !!}</a></div>
+                  @endforeach
+                </div>
+              </aside>
+              </div>
+              </div>
+    </div>
+    </div>
+</body>
+
   @include('includes.frontend.blogpage.footer')
+  @push('pageRelatedJs')
+<script src="{{ asset('assets/js/rumus.js') }}"></script>
+
+  </script>
 @endsection

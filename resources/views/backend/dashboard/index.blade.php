@@ -23,7 +23,7 @@
                     <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
                   </div>
                 </div>
-                <div class="number"><strong>25</strong></div>
+                <div class="number"><strong>{{ $post }}</strong></div>
               </div>
             </div>
             <!-- Item -->
@@ -35,7 +35,7 @@
                     <div role="progressbar" style="width: 70%; height: 4px;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
                   </div>
                 </div>
-                <div class="number"><strong>70</strong></div>
+                <div class="number"><strong>{{ $product }}</strong></div>
               </div>
             </div>
             <!-- Item -->

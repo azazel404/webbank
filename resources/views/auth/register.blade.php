@@ -48,11 +48,9 @@
                   <label for="register-agree">Agree the terms and policy</label>
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="btn btn-primary">
-                      Register
-                  </button>
+                  <button class="btn btn-warning btn-block" type="submit" name="register" style="color:white;">{{ __('register') }}</button>
                 </div>
-              </form><small>Already have an account? </small><a href="{{ route('login') }}" class="signup">Login</a>
+              </form><small>Already have an account? </small><a href="{{ route('login.form') }}" class="signup">Login</a>
             </div>
           </div>
         </div>

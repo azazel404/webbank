@@ -19,7 +19,8 @@ class CreatePostsTable extends Migration
             $table->string('slug');
             $table->string('cover');
             $table->text('content');
-            $table->string('category')->nullable();
+            $table->string('category');
+            $table->string('author');
             $table->string('post_type');
             $table->timestamps();
         });

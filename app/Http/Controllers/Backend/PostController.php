@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Backend;
 
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
+use Illuminate\Http\Request;
 use App\Models\Post;
 use DB;
+use Notify;
 
 
 class PostController extends Controller
@@ -15,8 +16,23 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
-        return view('backend.post.index',compact('posts'));
+
+        return view('backend.post.index');
+    }
+
+    public function ajax(Request $request)
+    {
+      $data = Post::query();
+      return Datatables::of($data)
+                ->addColumn('action', function ($model) {
+                    $str = '<div class="btn-group btn-group-circle">';
+                    $str .= '<a href='. route('adminpost.edit', ['post' => $model->id]) .' class="btn btn-outline-blue btn-sm"><span class="far fa-edit"></span> Edit</a>';
+                    $str .= '<a data-url="'. route('adminpost.delete', ['post' => $model->id]) .'" id="btnDelete" data-id="'.$model->id.'" data-toggle="modal"  data-table-name="#post-table" class="btn btn-outline-red btn-sm"><span class="far fa-trash-alt"></span> Delete</a>';
+                    $str .= '</div>';
+                    return $str;
+                })
+                ->escapeColumns([])
+        ->make(true);
     }
 
     public function create(Post $post){
@@ -42,9 +58,10 @@ class PostController extends Controller
         $post->content = $request->content;
         $post->category = $request->category;
         $post->post_type = $request->post_type;
+        $post->author = $request->author;
         $request->cover->move(public_path('img/blog'), $cover);
         $post->save();
-
+        Notify::success('The Data has been created','success');
         return redirect()->route('adminpost.index');
 
     }
@@ -59,28 +76,27 @@ class PostController extends Controller
 
         if (isset($request->cover)) {
             $cover = time().".".$request->cover->getClientOriginalExtension();
-            $post->title = $request->title;
-            $post->slug = $request->slug;
-            $post->content = $request->content;
             $post->cover = $cover;
-            $post->post_type = $request->post_type;
             $request->cover->move(public_path('img/blog'), $cover);
-            $post->save();
-            return redirect()->intended(route('adminpost.index'));
         }
         $post->title = $request->title;
+        $post->slug = $request->slug;
         $post->content = $request->content;
         $post->post_type = $request->post_type;
         $post->save();
-
+        Notify::success('The Data has been edited','success');
         return redirect()->intended(route('adminpost.index'));
     }
 
-
     public function destroy(Request $request)
     {
-       $post = Post::find($request->id);
-       $post->delete();
-      return redirect()->route('adminpost.index');
+      $post = Post::find($request->id);
+        $post->delete();
+        // if(unlink("./img/blog/".$post->cover)){
+        //
+        //   return redirect()->route('adminpost.index');
+        // }
+    Notify::success('The Data has been deleted','success');
+    return redirect()->route('adminpost.index');
     }
 }

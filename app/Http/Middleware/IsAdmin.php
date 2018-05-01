@@ -3,8 +3,10 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use app\Models\User;
 use Illuminate\Support\Facades\Auth;
+
+
+
 class IsAdmin
 {
     /**
@@ -14,12 +16,11 @@ class IsAdmin
      * @param  \Closure  $next
      * @return mixed
      */
-     public function handle($request, Closure $next)
-     {
-        if (Auth::user() &&  Auth::user()->admin == 2) {
-            return $next($request);
+    public function handle($request, Closure $next)
+    {
+         if(!Auth::check() || Auth::user()->role != '2'){
+            return redirect()->route('tampil.index');
         }
-
-       return redirect('/admin');
-     }
+        return $next($request);
+    }
 }

@@ -8,9 +8,10 @@ class Post extends Model
 
 
 
-  protected $fillable = [
-    'title', 'content','images','category','post_type'
-  ];
+  // protected $fillable = [
+  //   'title', 'content','cover','category','post_type','author'
+  // ];
+  protected $guarded = ['id'];
 
 
   protected $hidden = [];

@@ -11,34 +11,40 @@
       <link rel="shortcut icon" href="https://bprad.com/favicon.ico" />
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/pnotify.custom.min.css') }}">
     <!-- Fontastic Custom icon font-->
     <link rel="stylesheet" type="text/css" href="{{ mix('/css/app.css') }}"/>
     <link rel="stylesheet" href="{{ asset('assets/stylecss/fontastic.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/stylecss/style.default.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/stylecss/custom.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/css/pnotify.custom.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/stylecss/custom-backend.css')}}">
+
     <!-- <link rel="stylesheet" href="{{ asset('assets/font-awesome/css/font-awesome.min.css') }}"> -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/font-icons/fontawesome-free-5.0.7/web-fonts-with-css/css/fontawesome-all.min.css') }}">
     <!-- <link rel="stylesheet" href="{{ asset('assets/css/normalize.css') }}"> -->
     <script defer src="{{ asset('assets/js/fontawesome-all.min.js') }}"></script>
         <!-- Google fonts - Poppins -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.6/css/froala_editor.min.css' rel='stylesheet' type='text/css' />
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.6/css/froala_style.min.css' rel='stylesheet' type='text/css' />
     @stack('pageRelatedCss')
-</head>
-<body>
-@yield('body')
 
-<script src="{{ asset('assets/jquery/jquery.js') }}"></script>
-<script src="{{ asset('assets/jquery-cookie/jquery.cookie.js') }}"></script>
-<script src="{{ asset('assets/js/bootstrap.js') }}"></script>
-<!-- <script src="{{ asset('assets/js/charts-home.js') }}"></script> -->
-<!-- <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script> -->
-<script src="{{ asset('assets/js/popper.min.js') }}"></script>
-<!-- <script src="{{ asset('assets/js/Chart.min.js') }}"></script> -->
-<script src="{{ asset('assets/js/front.js') }}"></script>
-<script src="{{ asset('assets/js/pnotify.custom.min.js') }}"></script>
-<script src="{{ asset('assets/jquery-validation/jquery.validate.min.js') }}"></script>
-<script src="{{ asset('js/custom.js') }}" charset="utf-8"></script>
-@stack('pageRelatedJs')
-</body>
-</html>
+    </head>
+    <body>
+    @yield('body')
+
+    <script src="{{ asset('assets/jquery/jquery.js') }}"></script>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.6/js/froala_editor.min.js'></script>
+    <script src="{{ asset('assets/jquery-cookie/jquery.cookie.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('assets/js/pnotify.custom.min.js') }}"></script>
+    <!-- <script src="{{ asset('assets/js/charts-home.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script> -->
+    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+    <!-- <script src="{{ asset('assets/js/Chart.min.js') }}"></script> -->
+    <script src="{{ asset('assets/js/front.js') }}"></script>
+
+    <script src="{{ asset('assets/jquery-validation/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}" charset="utf-8"></script>
+    @stack('pageRelatedJs')
+    </body>
+    </html>

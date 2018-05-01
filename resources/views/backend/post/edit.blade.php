@@ -21,7 +21,7 @@
                       <h3 class="h4">Edit Article</h3>
                     </div>
                     <div class="card-body">
-                      <p>Lorem ipsum dolor sit amet consectetur.</p>
+                      <!-- <p>Lorem ipsum dolor sit amet consectetur.</p> -->
                        {!! Form::model($post, ['url' => route('adminpost.update', ['post' => $post]),'method' => 'PUT', 'enctype'=>'multipart/form-data']) !!}
                         <div class="form-group">
                           {{ Form::label('title', 'title',array('class' => 'form-control-label')) }}
@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-group">
                           {{ Form::label('content', 'content',array('class' => 'form-control-label')) }}
-                          {{ Form::textarea('content', $post->content ? $post->content : old('content'), array('class' => 'form-control', 'required' => 'required')) }}
+                          {{ Form::textarea('content', $post->content ? $post->content : old('content'), array('class' => 'form-control', 'required' => 'required' , 'id' => 'myEditor')) }}
                         </div>
                         <div class="form-group">
                           {{ Form::label('category', 'category',array('class' => 'form-control-label')) }}
@@ -56,22 +56,15 @@
                 </div>
       </section>
 @include('includes.backend.dashboard.footer')
-@push('PageRelatedJs')
-<script src="{{ asset('tinymce/js/tinymce/tinymce.min.js') }}"></script>
+@push('pageRelatedJs')
 <script>
-  tinymce.init({
-      selector: 'textarea',
-      plugins: "link code autosave image",
-      menubar: false,
-      menu: {
-          file: {title: 'File', items: 'newdocument'},
-          edit: {title: 'Edit', items: 'undo redo | cut copy paste pastetext | selectall'},
-          insert: {title: 'Insert', items: 'link media | template hr'},
-          view: {title: 'View', items: 'visualaid'},
-          format: {title: 'Format', items: 'bold italic underline strikethrough superscript subscript | formats | removeformat'},
-          table: {title: 'Table', items: 'inserttable tableprops deletetable | cell row column'},
-          tools: {title: 'Tools', items: 'spellchecker code'}
-           }
+  $(function() {
+      $('#myEditor').froalaEditor({
+      dragInline: false,
+      toolbarButtons: ['bold', 'italic', 'underline', 'insertImage', 'insertLink', 'undo', 'redo'],
+      pluginsEnabled: ['image', 'link', 'draggable']
+    })
   });
 </script>
+@endpush
 @endsection

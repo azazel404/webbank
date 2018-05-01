@@ -10,53 +10,14 @@
 
 @include('includes.frontend.landingpage.navbar')
   <!-- Header -->
+  <!-- Header -->
   <header class="masthead">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="first-slide" src="/img/slider/slider.jpg" alt="First slide" height="300px">
-          <div class="container">
-            <div class="carousel-caption text-left">
-              <!-- <h1>Example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p> -->
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
-          <div class="container">
-            <div class="carousel-caption text-right">
-              <h1>One more for good measure.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-            </div>
-          </div>
-        </div>
+    <div class="container">
+      <div class="intro-text">
+        <div class="intro-lead-in"></div>
+        <div class="intro-heading text-uppercase"></div>
+
       </div>
-      <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
     </div>
   </header>
 
@@ -64,35 +25,36 @@
   <section id="services">
     <div class="container">
       <div class="row">
+
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Pelayanan Kami</h2>
           <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>
       </div>
-      <div class="row text-center">
+      <div class="row text-center" id="pelayanan">
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+            <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">E-Commerce</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <h4 class="service-heading">Kredit</h4>
+          <p class="text-muted">Kredit BPR Agra Dhana Solusi Pembiayaan untuk anda</p>
         </div>
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
             <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Responsive Design</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <h4 class="service-heading">Deposito</h4>
+          <p class="text-muted">Deposito Agra Dhana Aman dan Menguntungkan Anda</p>
         </div>
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+            <i class="fa fa-university fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Web Security</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <h4 class="service-heading">Tabungan</h4>
+          <p class="text-muted">Tabungan Agra Dhana Fleksibel dan menguntungkan Anda</p>
         </div>
       </div>
     </div>
@@ -166,7 +128,7 @@
           <div class="team-member">
             <img class="mx-auto rounded-circle" src="img/team/1.jpg" alt="">
             <h4>Kay Garland</h4>
-            <p class="text-muted">Lead Designer</p>
+            <!-- <p class="text-muted">Lead Designer</p>
             <ul class="list-inline social-buttons">
               <li class="list-inline-item">
                 <a href="#">
@@ -183,7 +145,7 @@
                   <i class="fa fa-linkedin"></i>
                 </a>
               </li>
-            </ul>
+            </ul> -->
           </div>
         </div>
         <div class="col-sm-4">
@@ -191,7 +153,7 @@
             <img class="mx-auto rounded-circle" src="img/team/2.jpg" alt="">
             <h4>Larry Parker</h4>
             <p class="text-muted">Lead Marketer</p>
-            <ul class="list-inline social-buttons">
+            <!-- <ul class="list-inline social-buttons">
               <li class="list-inline-item">
                 <a href="#">
                   <i class="fa fa-twitter"></i>
@@ -207,7 +169,7 @@
                   <i class="fa fa-linkedin"></i>
                 </a>
               </li>
-            </ul>
+            </ul> -->
           </div>
         </div>
         <div class="col-sm-4">
@@ -215,7 +177,7 @@
             <img class="mx-auto rounded-circle" src="img/team/3.jpg" alt="">
             <h4>Diana Pertersen</h4>
             <p class="text-muted">Lead Developer</p>
-            <ul class="list-inline social-buttons">
+            <!-- <ul class="list-inline social-buttons">
               <li class="list-inline-item">
                 <a href="#">
                   <i class="fa fa-twitter"></i>
@@ -231,7 +193,7 @@
                   <i class="fa fa-linkedin"></i>
                 </a>
               </li>
-            </ul>
+            </ul> -->
           </div>
         </div>
       </div>
@@ -250,22 +212,22 @@
         BPRDN terdaftar dan diawasi oleh:
       </p>
       <div class="row">
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-3 col-5">
           <a href="#">
             <img class="img-fluid d-block mx-auto" src="img/logos/lobo-bi-baru.png" alt="">
           </a>
         </div>
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-3 col-5">
           <a href="#">
             <img class="img-fluid d-block mx-auto" src="img/logos/LPS-logo-baru.png" alt="">
           </a>
         </div>
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-3 col-5">
           <a href="#">
             <img class="img-fluid d-block mx-auto" src="img/logos/OJK-logo-baru.jpg" alt="">
           </a>
         </div>
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-3 col-5">
           <a href="#">
             <img class="img-fluid d-block mx-auto" src="img/logos/logo-ayo-ke-bank.png" alt="">
           </a>
@@ -280,19 +242,49 @@
        <div class="row">
          <div class="col-md-4 mb-2 mb-lg-0 py-3">
            <h4 class="text-uppercase mb-4" style="color:white">Contact</h4>
-           <p class="lead mb-0" style="color:white">
+           <p class="lead mb-3" style="color:white">
              Alamat: Komp. Nagoya City Centre blok E No.12, Lubuk Baja,<br />Kota Batam, Kep. Riau
              <br />
              Telp: (0778) 429199
            </p>
          </div>
-         <div class="col-sm-4 mb-0 mb-lg-0">
-
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3989.019702878036!2d104.00467881421352!3d1.1464040625159853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1522487271208" width="800" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
-         </div>
+         <div class="col-12 col-md-8" id="map" style="height:400px;"></div>
        </div>
      </div>
   </section>
   @include('includes.frontend.landingpage.modal')
   @include('includes.frontend.landingpage.footer')
+  @push('pageRelatedJs')
+  <script type="text/javascript">
+  function initMap() {
+         var bprad = {lat: 1.146399, lng: 104.006868};
+         var map = new google.maps.Map(document.getElementById('map'), {
+           zoom: 20,
+           center: bprad
+           });
+           var marker = new google.maps.Marker({
+             position: bprad,
+             map: map
+             });
+           }
+  </script>
+  <script async defer
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIix_nulnH0_vvcij-328M5wUGtMuu1Ow&callback=initMap">
+   </script>
+   @push('pageRelatedJs')
+   <script type="text/javascript">
+   $(document).ready(function() {
+       sr.reveal('#pelayanan', {
+           origin: 'left',
+       }, 50);
+       sr.reveal('#portfolio', {
+           origin: 'top',
+       }, 50);
+       sr.reveal('#team', {
+           origin: 'bottom',
+       }, 50);
+   });
+   </script>
+   @endpush
+   @endpush
   @endsection

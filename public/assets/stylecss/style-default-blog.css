@@ -337,7 +337,7 @@ i[class*="icon-"] {
 }
 
 .text-primary {
-  color: #999 !important;
+  color: #D1F110 !important;
 }
 
 p.text-hero {
@@ -450,8 +450,11 @@ div[class*="-btn"] {
   background: #fff;
   padding-top: 20px !important;
   padding-bottom: 20px !important;
-  z-index: 9998;
-  border-bottom: 1px solid #ddd;
+}
+.shadow{
+  -webkit-box-shadow: 0 2px 5px 0 rgba(189,189,189,1);
+  -moz-box-shadow: 0 2px 5px 0 rgba(189,189,189,1);
+  box-shadow: 0 2px 5px 0 rgba(189,189,189,1);
 }
 
 .navbar .langs a:first-of-type,
@@ -589,18 +592,19 @@ div[class*="-btn"] {
 }
 
 .navbar .navbar-nav a.nav-link {
-  color: #333;
-  margin: 0 5px;
+  color:#0E0F0F;
+  margin: 0 10px;
   font-weight: 400;
-  font-size: 0.95em;
+  font-size: 15px;
 }
 
 .navbar .navbar-nav a.nav-link:hover {
-  color: #999;
+  color:#D1F110;
+
 }
 
 .navbar .navbar-nav a.nav-link.active {
-  color: #999;
+  color: #E81C37;
   font-weight: bold;
 }
 
@@ -1325,6 +1329,11 @@ main.posts-listing .post-footer {
 .blog-post .post-thumbnail img {
   width: 100%;
   margin-bottom: 10px;
+  height: 100%;
+}
+.blog-post .post-width img{
+  width: 300px;
+  height: 300px;
 }
 
 .blog-post h1 {
@@ -2220,7 +2229,7 @@ body {
   font-weight: normal;
   line-height: 1.5;
   color: #212529;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 
 a {
@@ -2343,7 +2352,7 @@ mark,
 }
 
 .text-primary {
-  color: #999 !important;
+  color: yellow !important;
 }
 
 a.text-primary:focus, a.text-primary:hover {
@@ -2521,9 +2530,6 @@ a.bg-dark:focus, a.bg-dark:hover {
   border-color: #343a40 !important;
 }
 
-.text-primary {
-  color: #999 !important;
-}
 
 a.text-primary:focus, a.text-primary:hover {
   color: gray !important;
