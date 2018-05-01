@@ -18,10 +18,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        view()->composer('includes.frontend.blogpage.sidebar',function($view){
-            $view->
-        });
-
     }
 
     /**
