@@ -31,32 +31,64 @@
           <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>
       </div>
-      <div class="row text-center" id="pelayanan">
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i>
-          </span>
-          <h4 class="service-heading">Kredit</h4>
-          <p class="text-muted">Kredit BPR Agra Dhana Solusi Pembiayaan untuk anda</p>
-        </div>
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-          </span>
-          <h4 class="service-heading">Deposito</h4>
-          <p class="text-muted">Deposito Agra Dhana Aman dan Menguntungkan Anda</p>
-        </div>
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <i class="fa fa-university fa-stack-1x fa-inverse"></i>
-          </span>
-          <h4 class="service-heading">Tabungan</h4>
-          <p class="text-muted">Tabungan Agra Dhana Fleksibel dan menguntungkan Anda</p>
-        </div>
-      </div>
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="box">
+              <div class="box-gray aligncenter">
+                <h4>Kredit</h4>
+                <div class="icon">
+                  <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i>
+                  </span>
+                </div>
+                <p>
+                Kami menghadirkan Produk Jasa Kredit / Pembiayaan untuk segala kebutuhan anda.<br><br></p>
+
+              </div>
+              <div class="box-bottom">
+                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Klik untuk informasi lebih lanjut">Learn more</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="box">
+              <div class="box-gray aligncenter">
+                <h4>Deposito</h4>
+                <div class="icon">
+                  <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                  </span>
+                </div>
+                <p>
+                  Produk jasa Deposito, memberikan keuntungan aman karena Simpanan anda di BPR Agra Dhana</p>
+              </div>
+              <div class="box-bottom" >
+                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Klik untuk informasi lebih lanjut">Learn more</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="box">
+              <div class="box-gray aligncenter">
+                <h4>Tabungan</h4>
+                <div class="icon">
+                  <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fa fa-university fa-stack-1x fa-inverse"></i>
+                  </span>
+                </div>
+                <p>
+                  Kami juga menghadirkan berbagai variasi Tabungan dengan bunga yang sangat menguntungkan.</p>
+
+              </div>
+              <div class="box-bottom">
+                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Klik untuk informasi lebih lanjut">Learn more</a>
+              </div>
+            </div>
+          </div>
     </div>
   </section>
 
@@ -113,103 +145,11 @@
           </div>
         </div>
   </section>
-
-  <!-- Team -->
-  <section class="bg-light" id="team">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Team Kami</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="img/team/1.jpg" alt="">
-            <h4>Kay Garland</h4>
-            <!-- <p class="text-muted">Lead Designer</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul> -->
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="img/team/2.jpg" alt="">
-            <h4>Larry Parker</h4>
-            <p class="text-muted">Lead Marketer</p>
-            <!-- <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul> -->
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="img/team/3.jpg" alt="">
-            <h4>Diana Pertersen</h4>
-            <p class="text-muted">Lead Developer</p>
-            <!-- <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul> -->
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-8 mx-auto text-center">
-          <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Clients -->
   <section class="py-5">
     <div class="container">
       <p class="lead mb-5" style="color:black">
-        BPRDN terdaftar dan diawasi oleh:
+        BPRAD terdaftar dan diawasi oleh:
       </p>
       <div class="row">
         <div class="col-md-3 col-5">

@@ -15,9 +15,6 @@
             <a class="nav-link js-scroll-trigger" href="#portfolio">Tentang Kami</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team">Team Kami</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
           </li>
           <li class="nav-item">

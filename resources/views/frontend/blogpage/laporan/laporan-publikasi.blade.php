@@ -10,28 +10,20 @@
         <!-- Latest Posts -->
         <main class="posts-listing col-lg-8">
           <h1>Laporan Publikasi</h1>
-          <br><br>
+          <br>
+          <p>laporan triwulan periode ke :</p>
           <div class="container">
-            <!-- <div class="row form-group">
-            <input class="form-control" type="text" placeholder="Laporan Publikasi" readonly>
-            </div>
-            <div class="row form-group">
-              <select  name="tahun" class="form-control" id="tahun">
-                @foreach($reports as $report)
-                <option>
-                  {{$report->tahun}}
-                </option>
-                @endforeach
-              </select>
-            </div> -->
-
-            <!-- Pagination -->
-            <nav aria-label="Page navigation example">
-              <ul class="pagination pagination-template d-flex justify-content-center">
-
-              </ul>
-            </nav>
-          </div>
+            <div class="form-group">
+              @for ($i = 0; $i <= 4; $i++)
+              <div class="card-header flip">
+                <h5 class="mb-0">
+                    <i class="fa fa-angle-down"></i>
+                    {{date('F  Y', strtotime($publikasis->tanggal))}}
+                </h5>
+              </div>
+              <div class="panel"><a href="{{ asset('img/laporan/kelola/' . $test)}}">{{ $test1 }}</a></div>
+            @endfor
+              </div>
         </main>
         <aside class="col-lg-4">
           <!-- Widget [Search Bar Widget]-->
@@ -64,8 +56,10 @@
     @push('pageRelatedJs')
     <script type="text/javascript">
     $(document).ready(function(){
-
+       $('.flip').on('click', function() {
+        $(this).next().slideToggle('fast')
+      });
     });
-    </script>
+  </script>
     @endpush
 @endsection

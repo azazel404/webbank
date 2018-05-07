@@ -50,10 +50,16 @@ Route::group(['namespace' => 'Frontend'], function() {
 
 	Route::get('/simulasi','SimulasiController@create')->name('simulasi.create');
 	Route::post('/store','SimulasiController@store')->name('simulasi.store');
+
 	Route::get('/contact','ContactController@create')->name('contact.create');
 	Route::post('/contact','ContactController@store')->name('contact.store');
+
 	Route::get('/laporan-publikasi','LaporanController@createPublikasi')->name('publikasi.create');
+	Route::get('/laporan-publikasi/{$id}','LaporanController@publikasiAjax')->name('publikasi.ajax');
+
 	Route::get('/laporan-kelola','LaporanController@createKelola')->name('kelola.create');
+	Route::get('/laporan-kelola/{kelola}','LaporanController@kelolaAjax')->name('kelola.ajax');
+
 
 });
 
@@ -123,13 +129,23 @@ Route::group(['namespace' => 'Backend', 'as' => 'admin', 'middleware' => 'admin'
 								});
 
 	Route::group(['prefix' => 'laporan'], function() {
-									Route::get('/','ReportController@index')->name('report.index');
-									Route::post('/','ReportController@ajax')->name('report.ajax');
-									Route::get('/new','ReportController@create')->name('report.create');
-									Route::post('/store','ReportController@store')->name('report.store');
-									Route::get('/{report}/edit','ReportController@edit')->name('report.edit');
-									Route::put('/{report}/update','ReportController@update')->name('report.update');
-									Route::post('/delete', 'ReportController@destroy')->name('report.delete');
+									Route::get('/publikasi','LaporanPublikasiController@index')->name('publikasi.index');
+									Route::post('/publikasi','LaporanPublikasiController@ajax')->name('publikasi.ajax');
+									Route::get('/publikasi/new','LaporanPublikasiController@create')->name('publikasi.create');
+									Route::post('/publikasi/store','LaporanPublikasiController@store')->name('publikasi.store');
+									Route::get('/publikasi/{publikasi}/edit','LaporanPublikasiController@edit')->name('publikasi.edit');
+									Route::put('/publikasi/{publikasi}/update','LaporanPublikasiController@update')->name('publikasi.update');
+									Route::post('/publikasi/delete', 'LaporanPublikasiController@destroy')->name('publikasi.delete');
+
+									Route::get('/kelola','LaporanKelolaController@index')->name('kelola.index');
+									Route::post('/kelola','LaporanKelolaController@ajax')->name('kelola.ajax');
+									Route::get('/kelola/new','LaporanKelolaController@create')->name('kelola.create');
+									Route::post('/kelola/store','LaporanKelolaController@store')->name('kelola.store');
+									Route::get('/kelola/{kelola}/edit','LaporanKelolaController@edit')->name('kelola.edit');
+									Route::put('/kelola/{kelola}/update','LaporanKelolaController@update')->name('kelola.update');
+									Route::post('/kelola/delete', 'LaporanKelolaController@destroy')->name('kelola.delete');
+
+
 								});
 
 

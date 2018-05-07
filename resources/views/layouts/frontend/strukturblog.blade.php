@@ -28,7 +28,7 @@
 <body>
 @yield('body')
 <script src="{{ asset('assets/jquery/jquery.min.js') }}"></script>
-<script type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
+<!-- <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script> -->
 <script src="{{ asset('assets/js/popper.min.js') }}"></script>
 <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('assets/js/front.js') }}"></script>

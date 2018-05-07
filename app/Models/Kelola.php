@@ -3,10 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-class Report extends Model
+class Kelola extends Model
 {
 
-
+  protected $table = 'laporankelolas';
 
   // protected $fillable = [
   //   'title', 'content','cover','category','post_type','author'

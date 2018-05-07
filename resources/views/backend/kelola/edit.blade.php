@@ -11,7 +11,7 @@
       <!-- Page Header-->
       <header class="page-header">
         <div class="container-fluid">
-          <h2 class="no-margin-bottom">Laporan</h2>
+          <h2 class="no-margin-bottom">Data Kelola</h2>
 
         </div>
       </header>
@@ -22,7 +22,7 @@
                 <div class="col-lg-12">
                   <div class="card">
                     <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">New Laporan</h3>
+                      <h3 class="h4">Edit  Kelola</h3>
                     </div>
                     <div class="card-body">
                       @if ($errors->any())
@@ -34,40 +34,33 @@
                               </ul>
                           </div>
                       @endif
-                       {!! Form::open(array('route' => 'adminreport.store', 'method' => 'POST','class' => 'form-horizontal', 'enctype'=>'multipart/form-data')) !!}
-
+                       {!! Form::model($kelola, ['url' => route('adminkelola.update', ['kelola' => $kelola]),'method' => 'PUT', 'enctype'=>'multipart/form-data']) !!}
                         <div class="form-group row">
-                          {{ Form::label('laporan', 'Photos',array('class' => 'col-sm-3 form-control-label')) }}
+                          {{ Form::label('laporan', 'File Laporan',array('class' => 'col-sm-3 form-control-label')) }}
                             <div class="col-sm-9">
                           {{ Form::file('laporan')}}
                         </div>
                         </div>
                         <div class="form-group row">
-                          {{ Form::label('description', 'description',array('class' => 'col-sm-3 form-control-label')) }}
+                          {{ Form::label('tipe_laporan', 'type laporan',array('class' => 'col-sm-3 form-control-label')) }}
                             <div class="col-sm-9">
-                          {{ Form::text('description',null, array('class' => 'form-control', 'placeholder' => 'description', 'required' => 'required')) }}
+                          {{ Form::text('tipe_laporan',$kelola->tipe_laporan ? $kelola->tipe_laporan : old('tipe_laporan'), array('class' => 'form-control', 'placeholder' => 'type laporan', 'required' => 'required')) }}
                         </div>
                         </div>
                         <div class="form-group row">
                           {{ Form::label('nama_laporan', 'nama laporan',array('class' => 'col-sm-3 form-control-label')) }}
                             <div class="col-sm-9">
-                          {{ Form::text('nama_laporan',null, array('class' => 'form-control', 'placeholder' => 'nama laporan', 'required' => 'required')) }}
+                          {{ Form::text('nama_laporan',$kelola->nama_laporan ? $kelola->nama_laporan : old('nama_laporan'), array('class' => 'form-control', 'placeholder' => 'nama laporan', 'required' => 'required')) }}
                         </div>
                         </div>
                         <div class="form-group row">
-                          {{ Form::label('tipe_laporan', 'type laporan',array('class' => 'col-sm-3 form-control-label')) }}
+                          {{ Form::label('tanggal', 'Tanggal',array('class' => 'col-sm-3 form-control-label')) }}
                             <div class="col-sm-9">
-                          {{ Form::text('tipe_laporan',null, array('class' => 'form-control', 'placeholder' => 'type laporan', 'required' => 'required')) }}
-                        </div>
-                        </div>
-                        <div class="form-group row">
-                          {{ Form::label('tahun', 'tahun',array('class' => 'col-sm-3 form-control-label')) }}
-                            <div class="col-sm-9">
-                          {{ Form::text('tahun',null, array('class' => 'form-control', 'placeholder' => 'tahun', 'required' => 'required')) }}
+                          {{ Form::date('tanggal',$kelola->tanggal ? $kelola->tanggal : old('tanggal'), array('class' => 'form-control', 'placeholder' => 'tanggal', 'required' => 'required')) }}
                         </div>
                         </div>
                         <div class="form-group">
-                          {{ Form::submit('Create Post', array('class' => 'btn btn-primary btn-lg btn-block')) }}
+                          {{ Form::submit('Save Changes', array('class' => 'btn btn-primary btn-lg btn-block')) }}
                         </div>
                         {!! Form::close() !!}
                     </div>

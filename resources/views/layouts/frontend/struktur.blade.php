@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset ('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ mix('/css/app.css') }}"/>
     <link rel="stylesheet" href="{{ asset('assets/font-awesome/css/font-awesome.min.css') }}">
+      <link rel="stylesheet" href="{{ asset('assets/stylecss/custom-frontend.css')}}">
     <!-- Custom fonts for this template -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>

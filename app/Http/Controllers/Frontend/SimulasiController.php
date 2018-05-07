@@ -43,53 +43,86 @@ class SimulasiController extends Controller
 
 
         if($request->jenis_bunga === 'Flat In Area'){
+          $output = "";
+          $no = 1;
+        //$output .="<tr><td>waktunya ". $waktu ." bulan </td></tr>";
+      //for ($i=0; $i < $waktu; $i++) {
+      $plafond = $total_cicilan;
+      $cicilanBunga = $bungaperbulan;
+      $totalCicilan = $cicilanbulan + $cicilanBunga;
+      $i=0;
 
-                          $output = "";
-                          $no = 1;
+        do{
+          $tgl_cair = strtotime("+$i month", strtotime($tglcair));
 
-                      for ($i=0; $i <= $waktu; $i++) {
-                          $tgl_cair = strtotime("+$i month", strtotime($tglcair));
-                            if($i) $plafond -= $cicilanBunga + $jumlahCicilan;
-                            if ($plafond < 0) break;
+            //if($i)
 
-                            $output .= "<tr>";
-                            $output .= "<td>".$no++."</td>";
-                            $output .= "<td>".date('Y-m-d',$tgl_cair)."</td>";
-                            $output .= "<td>".number_format($plafond,2)."</td>";
-                            $output .= "<td>".number_format($jumlahCicilan,2)."</td>";
-                            if($i){
-                            $output .= "<td>".number_format($cicilanBunga,2)."</td>";
-                            }else{
-                            $output .= "<td>0</td>";
-                            }
-                            $output .= "<td>".number_format($totalcicilansemua,2)."</td>";
-                            $output .= "</tr>";
-                      }
+            //$plafond -= $cicilanBunga + $jumlahCicilan;
+            $plafond -= $cicilanbulan;
+            // if ($plafond < 0){
+            //   $jumlahCicilan += abs($plafond);
+            //   $plafond = 0;
+            // }
+
+            $output .= "<tr>";
+            $output .= "<td>".$no++." ini</td>";
+            $output .= "<td>".date('Y-m-d',$tgl_cair)."</td>";
+            $output .= "<td>".number_format($plafond,2)."</td>";
+            // $output .= "<td>".number_format($jumlahCicilan,2)."</td>";
+            $output .= "<td>".number_format($cicilanbulan - $cicilanBunga,2)."</td>";
+            //if($i){
+            $output .= "<td>".number_format($cicilanBunga,2)."</td>";
+            // }else{
+            // $output .= "<td>0</td>";
+            // }
+            //$output .= "<td>".number_format($totalcicilansemua,2)."</td>";
+            $output .= "<td>".number_format($cicilanbulan, 2)."</td>";
+            $output .= "</tr>";
+            $i++;
+      }
+      while($plafond > 0);
 
         }
         elseif ($request->jenis_bunga === 'Flat In Advanced') {
 
                           $output = "";
                           $no = 1;
+                        //$output .="<tr><td>waktunya ". $waktu ." bulan </td></tr>";
+                      //for ($i=0; $i < $waktu; $i++) {
+                      $plafond = $total_cicilan;
+                      $cicilanBunga = $bungaperbulan;
+                      $totalCicilan = $cicilanbulan + $cicilanBunga;
+                      $i=0;
 
-                      for ($i=0; $i <= $waktu; $i++) {
+                        do{
                           $tgl_cair = strtotime("+$i month", strtotime($tglcair));
-                            if($i) $plafond -= $cicilanBunga + $jumlahCicilan;
-                            if ($plafond < 0) break;
+
+                            //if($i)
+
+                            //$plafond -= $cicilanBunga + $jumlahCicilan;
+                            $plafond -= $cicilanbulan;
+                            // if ($plafond < 0){
+                            //   $jumlahCicilan += abs($plafond);
+                            //   $plafond = 0;
+                            // }
 
                             $output .= "<tr>";
-                            $output .= "<td>".$no++."</td>";
+                            $output .= "<td>".$no++." ini</td>";
                             $output .= "<td>".date('Y-m-d',$tgl_cair)."</td>";
                             $output .= "<td>".number_format($plafond,2)."</td>";
-                            $output .= "<td>".number_format($jumlahCicilan,2)."</td>";
-                            if($i){
+                            // $output .= "<td>".number_format($jumlahCicilan,2)."</td>";
+                            $output .= "<td>".number_format($cicilanbulan - $cicilanBunga,2)."</td>";
+                            //if($i){
                             $output .= "<td>".number_format($cicilanBunga,2)."</td>";
-                            }else{
-                            $output .= "<td>0</td>";
-                            }
-                            $output .= "<td>".number_format($totalcicilansemua,2)."</td>";
+                            // }else{
+                            // $output .= "<td>0</td>";
+                            // }
+                            //$output .= "<td>".number_format($totalcicilansemua,2)."</td>";
+                            $output .= "<td>".number_format($cicilanbulan, 2)."</td>";
                             $output .= "</tr>";
+                            $i++;
                       }
+                      while($plafond > 0);
 
         }
 

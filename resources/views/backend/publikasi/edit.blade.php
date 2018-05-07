@@ -11,7 +11,7 @@
       <!-- Page Header-->
       <header class="page-header">
         <div class="container-fluid">
-          <h2 class="no-margin-bottom">Report</h2>
+          <h2 class="no-margin-bottom">Laporan Publikasi</h2>
 
         </div>
       </header>
@@ -22,7 +22,7 @@
                 <div class="col-lg-12">
                   <div class="card">
                     <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">New Report</h3>
+                      <h3 class="h4">Edit Laporan Publikasi</h3>
                     </div>
                     <div class="card-body">
                       @if ($errors->any())
@@ -34,9 +34,9 @@
                               </ul>
                           </div>
                       @endif
-                       {!! Form::model($report, ['url' => route('adminreport.update', ['report' => $report]),'method' => 'PUT', 'enctype'=>'multipart/form-data']) !!}
+                       {!! Form::model($publikasi, ['url' => route('adminpublikasi.update', ['publikasi' => $publikasi]),'method' => 'PUT', 'enctype'=>'multipart/form-data']) !!}
                         <div class="form-group row">
-                          {{ Form::label('laporan', 'Photos',array('class' => 'col-sm-3 form-control-label')) }}
+                          {{ Form::label('laporan', 'File Laporan',array('class' => 'col-sm-3 form-control-label')) }}
                             <div class="col-sm-9">
                           {{ Form::file('laporan')}}
                         </div>
@@ -44,25 +44,19 @@
                         <div class="form-group row">
                           {{ Form::label('tipe_laporan', 'type laporan',array('class' => 'col-sm-3 form-control-label')) }}
                             <div class="col-sm-9">
-                          {{ Form::text('tipe_laporan',$report->tipe_laporan ? $report->tipe_laporan : old('tipe_laporan'), array('class' => 'form-control', 'placeholder' => 'type laporan', 'required' => 'required')) }}
+                          {{ Form::text('tipe_laporan',$publikasi->tipe_laporan ? $publikasi->tipe_laporan : old('tipe_laporan'), array('class' => 'form-control', 'placeholder' => 'type laporan', 'required' => 'required')) }}
                         </div>
-                        </div>
-                        <div class="form-group row">
-                          {{ Form::label('description', 'description',array('class' => 'col-sm-3 form-control-label')) }}
-                            <div class="col-sm-9">
-                          {{ Form::text('description',$report->description ? $report->description : old('description'), array('class' => 'form-control', 'placeholder' => 'description', 'required' => 'required')) }}
-                        </div>
-                        </div>
+                      </div>
                         <div class="form-group row">
                           {{ Form::label('nama_laporan', 'nama laporan',array('class' => 'col-sm-3 form-control-label')) }}
                             <div class="col-sm-9">
-                          {{ Form::text('nama_laporan',$report->nama_laporan ? $report->nama_laporan : old('nama_laporan'), array('class' => 'form-control', 'placeholder' => 'nama laporan', 'required' => 'required')) }}
+                          {{ Form::text('nama_laporan',$publikasi->nama_laporan ? $publikasi->nama_laporan : old('nama_laporan'), array('class' => 'form-control', 'placeholder' => 'nama laporan', 'required' => 'required')) }}
                         </div>
                         </div>
                         <div class="form-group row">
-                          {{ Form::label('tahun', 'tahun',array('class' => 'col-sm-3 form-control-label')) }}
+                          {{ Form::label('tanggal', 'Tanggal',array('class' => 'col-sm-3 form-control-label')) }}
                             <div class="col-sm-9">
-                          {{ Form::text('tahun',$report->tahun ? $report->tahun : old('tahun'), array('class' => 'form-control', 'placeholder' => 'tahun', 'required' => 'required')) }}
+                          {{ Form::date('tanggal',$publikasi->tanggal ? $publikasi->tanggal : old('tanggal'), array('class' => 'form-control', 'placeholder' => 'tanggal', 'required' => 'required')) }}
                         </div>
                         </div>
                         <div class="form-group">

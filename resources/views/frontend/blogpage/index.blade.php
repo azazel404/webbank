@@ -4,119 +4,149 @@
 @section('body')
 <body class='top'>
   @include('includes.frontend.blogpage.navbar')
-
-<header class="container" >
-    <div class="owl-carousel owl-theme body-carousel">
-      <div class="item body-carousel">  <img  src="{{ asset('img/logos/slider.jpg')}}" alt="Second slide"></div>
-      <div class="item body-carousel">  <img  src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide"></div>
-      <div class="item body-carousel">  <img  src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide"></div>
-      <div class="item body-carousel">  <img  src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide"></div>
-  </div>
-</header>
-<!-- <section class="latest-posts">
-  <div class="container">
-    <header>
-      <h2>Latest from the blog</h2>
-    </header>
-    <div class="row">
-      <div class="post col-md-4">
-        <div class="post-thumbnail"><a href="post.html"><img src="img/blog-1.jpg" alt="..." class="img-fluid"></a>
-          <a href="#">
-              <h3 class="h4 hid-box">Ways to remember your important ideas</h3></a>
+  <body>
+    <!-- Hero Section-->
+    <section style="background: url(img/hero.jpg); background-size: cover; background-position: center center" class="hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7">
+            <h1>Bootstrap 4 Blog - A free template by Bootstrap Temple</h1><a href="#" class="hero-link">Discover More</a>
+          </div>
+        </div><a href=".intro" class="continue link-scroll"><i class="fa fa-long-arrow-down"></i> Scroll Down</a>
+      </div>
+    </section>
+    <!-- Intro Section-->
+    <section class="intro">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <h2 class="h3">Some great intro here</h2>
+            <p class="text-big">Place a nice <strong>introduction</strong> here <strong>to catch reader's attention</strong>. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderi.</p>
+          </div>
         </div>
       </div>
-      <div class="post col-md-4">
-        <div class="post-thumbnail"><a href="post.html"><img src="img/blog-1.jpg" alt="..." class="img-fluid"></a>
-          <a href="#">
-              <h3 class="h4 hid-box">Ways to remember your important ideas</h3></a>
+    </section>
+    <section class="featured-posts no-padding-top">
+      <div class="container">
+        <!-- Post-->
+        <div class="row d-flex align-items-stretch">
+          <div class="text col-lg-7">
+            <div class="text-inner d-flex align-items-center">
+              <div class="content">
+                <header class="post-header">
+                  <div class="category"><a href="#">Business</a><a href="#">Technology</a></div><a href="post.html">
+                    <h2 class="h4">Alberto Savoia Can Teach You About Interior</h2></a>
+                </header>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrude consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
+                    <div class="avatar"><img src="img/avatar-1.jpg" alt="..." class="img-fluid"></div>
+                    <div class="title"><span>John Doe</span></div></a>
+                  <div class="date"><i class="icon-clock"></i> 2 months ago</div>
+                  <div class="comments"><i class="icon-comment"></i>12</div>
+                </footer>
+              </div>
+            </div>
+          </div>
+          <div class="image col-lg-5"><img src="img/featured-pic-1.jpeg" alt="..."></div>
+        </div>
+        <!-- Post        -->
+        <div class="row d-flex align-items-stretch">
+          <div class="image col-lg-5"><img src="img/featured-pic-2.jpeg" alt="..."></div>
+          <div class="text col-lg-7">
+            <div class="text-inner d-flex align-items-center">
+              <div class="content">
+                <header class="post-header">
+                  <div class="category"><a href="#">Business</a><a href="#">Technology</a></div><a href="post.html">
+                    <h2 class="h4">Alberto Savoia Can Teach You About Interior</h2></a>
+                </header>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrude consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
+                    <div class="avatar"><img src="img/avatar-2.jpg" alt="..." class="img-fluid"></div>
+                    <div class="title"><span>John Doe</span></div></a>
+                  <div class="date"><i class="icon-clock"></i> 2 months ago</div>
+                  <div class="comments"><i class="icon-comment"></i>12</div>
+                </footer>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Post                            -->
+        <div class="row d-flex align-items-stretch">
+          <div class="text col-lg-7">
+            <div class="text-inner d-flex align-items-center">
+              <div class="content">
+                <header class="post-header">
+                  <div class="category"><a href="#">Business</a><a href="#">Technology</a></div><a href="post.html">
+                    <h2 class="h4">Alberto Savoia Can Teach You About Interior</h2></a>
+                </header>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrude consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
+                    <div class="avatar"><img src="img/avatar-3.jpg" alt="..." class="img-fluid"></div>
+                    <div class="title"><span>John Doe</span></div></a>
+                  <div class="date"><i class="icon-clock"></i> 2 months ago</div>
+                  <div class="comments"><i class="icon-comment"></i>12</div>
+                </footer>
+              </div>
+            </div>
+          </div>
+          <div class="image col-lg-5"><img src="img/featured-pic-3.jpeg" alt="..."></div>
         </div>
       </div>
-      <div class="post col-md-4">
-        <div class="post-thumbnail"><a href="post.html"><img src="img/blog-1.jpg" alt="..." class="img-fluid"></a>
-          <a href="#">
-              <h3 class="h4 hid-box">Ways to remember your important ideas</h3></a>
+    </section>
+    <!-- Divider Section-->
+    <section style="background: url(img/divider-bg.jpg); background-size: cover; background-position: center bottom" class="divider">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</h2><a href="#" class="hero-link">View More</a>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section> -->
-
-  <!-- Latest Posts -->
-         <section style="background : white;">
-            <div class="container">
-            <div class="row">
-
-                  <div class="col-md-6">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">News & Promo</a>
-                        </li>
-                    </ul>
-
-                     @foreach($posts as $post)
-                        <div class="tab-content" id="myTabContent">
-                          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <p><a href='#'><i class="fa fa-angle-double-right"></i> <strong>{{ $post->category }}</strong></a><br>
-                            <small><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp &nbsp{{ date('M j, Y', strtotime($post->created_at)) }}</small>
-                            <a href="{{ route('blog.post', $post->slug) }}"><h4 class="h4">{{ $post->title }}</h4></a>
-                              <p class="text-muted openword">{!! strip_tags(substr($post->content, 0, 70)) !!}{{ strlen($post->content) > 100 ? '...' : "" }}</p>
-                          </div>
-                        </div>
-                        @endforeach
-                  </div>
-                  <div class="col-md-6">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item">
-                          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Dokumentasi</a>
-                          </li>
-                      </ul>
-                      @foreach($dokumen as $post)
-                        <div class="tab-content" id="myTabContent">
-                          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <p><img src="img/blog-1.jpg" class="img-size-left" alt="Undian Hoki 3" />
-                             <a href="#" target="_blank"><strong>{{ $post->title }}</strong></a><br>
-                               <font color="#666"><small>{{ date('M j, Y', strtotime($post->created_at)) }}</small></font><br>Upper Room City Walk Nagoya – Batam
-                            </p>
-                          </div>
-                        </div>
-                      @endforeach
-                    </div>
-                  </div>
-                </div>
-            </section>}
-
-
-
-
-     <section class="py-5" style="background : white;">
-    <div class="container">
-      <p class="lead mb-5" style="color:black">
-        BPRAD terdaftar dan diawasi oleh:
-      </p>
-      <div class="row">
-        <div class="col-md-3 col-5 brand-responsive">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="img/logos/lobo-bi-baru.png" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-5 brand-responsive">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="img/logos/LPS-logo-baru.png" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-5 brand-responsive">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="img/logos/OJK-logo-baru.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-5 brand-responsive">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="img/logos/logo-ayo-ke-bank.png" alt="">
-          </a>
+    </section>
+    <!-- Latest Posts -->
+    <section class="latest-posts">
+      <div class="container">
+        <header>
+          <h2>Latest from the blog</h2>
+          <p class="text-big">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </header>
+        <div class="row">
+          <div class="post col-md-4">
+            <div class="post-thumbnail"><a href="post.html"><img src="img/blog-1.jpg" alt="..." class="img-fluid"></a></div>
+            <div class="post-details">
+              <div class="post-meta d-flex justify-content-between">
+                <div class="date">20 May | 2016</div>
+                <div class="category"><a href="#">Business</a></div>
+              </div><a href="post.html">
+                <h3 class="h4">Ways to remember your important ideas</h3></a>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+          </div>
+          <div class="post col-md-4">
+            <div class="post-thumbnail"><a href="post.html"><img src="img/blog-2.jpg" alt="..." class="img-fluid"></a></div>
+            <div class="post-details">
+              <div class="post-meta d-flex justify-content-between">
+                <div class="date">20 May | 2016</div>
+                <div class="category"><a href="#">Technology</a></div>
+              </div><a href="post.html">
+                <h3 class="h4">Diversity in Engineering: Effect on Questions</h3></a>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+          </div>
+          <div class="post col-md-4">
+            <div class="post-thumbnail"><a href="post.html"><img src="img/blog-3.jpg" alt="..." class="img-fluid"></a></div>
+            <div class="post-details">
+              <div class="post-meta d-flex justify-content-between">
+                <div class="date">20 May | 2016</div>
+                <div class="category"><a href="#">Financial</a></div>
+              </div><a href="post.html">
+                <h3 class="h4">Alberto Savoia Can Teach You About Interior</h3></a>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
     @include('includes.frontend.blogpage.footer')
 @endsection
 @push('pageRelatedJs')

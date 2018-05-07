@@ -52,7 +52,8 @@
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Arsip File Manager </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                     <li><a href="{{route('adminpenghargaan.index')}}"> <i class="fas fa-trophy"></i>&nbsp Penghargaan</a></li>
-                    <li><a href="{{route('adminreport.index')}}"> <i class="fas fa-trophy"></i>&nbsp Laporan</a></li>
+                    <li><a href="{{route('adminpublikasi.index')}}"> <i class="fas fa-trophy"></i>&nbsp Laporan Publikasi</a></li>
+                    <li><a href="{{route('adminkelola.index')}}"> <i class="fas fa-trophy"></i>&nbsp Data Kelola</a></li>
                     <li><a href="#">Page</a></li>
                   </ul>
                 </li>

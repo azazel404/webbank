@@ -9,28 +9,20 @@
       <div class="row">
         <!-- Latest Posts -->
         <main class="posts-listing col-lg-8">
-          <h1>Laporan Kelola</h1>
-          <br><br>
+          <h1>Tata Kelola</h1>
+          <br>
           <div class="container">
-            <div class="row form-group">
-            <!-- <input class="form-control" type="text" placeholder="Laporan Kelola" readonly> -->
-            </div>
-            @foreach($reports as $img)
-            <p><a href="{{ asset('img/laporan/' . $img->laporan)}}">{{$img->description}}</a></p>
-            @endforeach
-            <div class="row form-group">
-              <!-- <div id="flip">Click to slide the panel down or up</div>
-              @foreach($reports as $report)
-              <div id="panel">  {{$report->tahun}}</div>
-              @endforeach -->
-            </div>
-            <!-- Pagination -->
-            <nav aria-label="Page navigation example">
-              <ul class="pagination pagination-template d-flex justify-content-center">
-
-              </ul>
-            </nav>
-          </div>
+            <div class="form-group">
+              @foreach($kelolas as $data)
+              <div class="card-header flip">
+                <h5 class="mb-0">
+                    <i class="fa fa-angle-down"></i>
+                    {{date('F  Y', strtotime($data->tanggal))}}
+                </h5>
+              </div>
+              <div class="panel"><a href="{{ asset('img/laporan/kelola/' . $data->laporan)}}">{{ $data->nama_laporan }}</a></div>
+              @endforeach
+              </div>
         </main>
         <aside class="col-lg-4">
           <!-- Widget [Search Bar Widget]-->
@@ -63,10 +55,10 @@
     @push('pageRelatedJs')
     <script type="text/javascript">
     $(document).ready(function(){
-      $("#flip").click(function(){
-        $("#panel").slideToggle("slow");
+       $('.flip').on('click', function() {
+        $(this).next().slideToggle('fast')
+      });
     });
-    });
-    </script>
+  </script>
     @endpush
 @endsection

@@ -23,9 +23,8 @@
                 <ul class="dropdown-menu dropdown-content" id="navbartentang">
                   <li><a class="dropdown-item" href="#">Profile Perusahaan</a></li>
                   <li><a class="dropdown-item" href="#">Karir</a></li>
-                  <li><a class="dropdown-item" href="#">Lokasi</a></li>
                   <li><a class="dropdown-item" href="{{route('publikasi.create')}}">Laporan Publikasi</a></li>
-                  <li><a class="dropdown-item" href="{{route('kelola.create')}}">Laporan Kelola</a></li>
+                  <li><a class="dropdown-item" href="{{route('kelola.create')}}">Data Kelola</a></li>
                   <li><a class="dropdown-item" href="{{route('award.page')}}">Penghargaan</a></li>
                 </ul>
               </li>
@@ -51,7 +50,7 @@
             </li>
         </div>
       </nav>
-      <div class="search-data">
+      <!-- <div class="search-data">
         </div>
-      </div>
+      </div> -->
   </header>

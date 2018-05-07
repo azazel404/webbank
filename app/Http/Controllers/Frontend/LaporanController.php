@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\Report;
+use App\Models\Publikasi;
+use App\Models\Kelola;
 use DB;
-use Mail;
+
 use Session;
 use Validator;
 
@@ -15,22 +16,19 @@ class LaporanController extends Controller
 {
 
 
-    public function createPublikasi()
+    public function createPublikasi(Publikasi $publikasi)
     {
         $post = DB::table('posts')->select('category')->paginate(5);
-        $reports = Report::all();
-        return view('frontend.blogpage.laporan.laporan-publikasi',compact('post','reports'));
+        $publikasis= Publikasi::all();
+        dd($publikasis);
+        return view('frontend.blogpage.laporan.laporan-publikasi',compact('post','publikasis'));
     }
 
-    public function createKelola(Report $report)
+    public function createKelola(Kelola $kelola)
     {
         $post = DB::table('posts')->select('category')->paginate(5);
-        $reports = Report::all();
-        return view('frontend.blogpage.laporan.laporan-kelola',compact('post','reports'));
-    }
-
-    public function store(Request $request){
-
+        $kelolas= Kelola::all();
+        return view('frontend.blogpage.laporan.laporan-kelola',compact('post','kelolas'));
     }
 
 }

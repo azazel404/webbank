@@ -8,7 +8,7 @@
       <!-- Page Header-->
       <header class="page-header">
         <div class="container-fluid">
-          <h2 class="no-margin-bottom">Report</h2>
+          <h2 class="no-margin-bottom">Data Kelola</h2>
         </div>
       </header>
       <div class="card-header d-flex align-items-center">
@@ -26,24 +26,23 @@
                 <div class="col-lg-12" >
                   <div class="card">
                     <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Report Table</h3>
+                      <h3 class="h4">Kelola Table</h3>
                           <div class="actions ml-auto">
-                              <a href="{{ route('adminreport.create') }}" title="New Post" data-toggle="tooltip" data-placement="left" class="btn btn-lg">
+                              <a href="{{ route('adminkelola.create') }}" title="New Post" data-toggle="tooltip" data-placement="left" class="btn btn-lg">
                               <span class="fas fa-plus-circle entypo-plus"></span>
                               </a>
                           </div>
                     </div>
                     <div class="card-body">
                       <div class="table-responsive ">
-                        <table class="table table-bordered" id="report-table">
+                        <table class="table table-bordered" id="kelola-table">
                           <thead>
                          <tr>
                             <th>No</th>
-                            <th>Laporan</th>
+                            <th>File Laporan</th>
                             <th>Nama Laporan</th>
-                            <th>Description</th>
                             <th>Type Laporan</th>
-                            <th>Tahun</th>
+                            <th>Tanggal</th>
                             <th style="text-align:center">Action</th>
                           </tr>
                           </thead>
@@ -63,9 +62,9 @@
             </div>
             <div class="modal-body">
               <p>Are you sure to delete this post ?</p>
-              <form action="{{route('adminreport.delete')}}" method="post">
+              <form action="{{route('adminkelola.delete')}}" method="post">
                   {{csrf_field()}}
-                  <input id="idReport" type="hidden" name="id" value="">
+                  <input id="idKelola" type="hidden" name="id" value="">
             </div>
             <div class="modal-footer">
               <a href="javascript:void(0)" class="btn btn-default" data-dismiss="modal">Close</a>
@@ -88,29 +87,28 @@
   $(document).on('click', '#btnDelete', function(){
 
     //send data id ke form modal
-    $('#idReport').val($(this).data('id'));
+    $('#idKelola').val($(this).data('id'));
 
     //munculin modal
     $('#modalDelete').modal('show');
   });
 		$(document).ready(function(){
-			var table = $('#report-table').DataTable({
+			var table = $('#kelola-table').DataTable({
 				processing: true,
 				serverSide: true,
 				ajax: {
 					headers: {
 						'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 					},
-					url: '{!! route('adminreport.ajax') !!}',
+					url: '{!! route('adminkelola.ajax') !!}',
 					type: 'POST'
 				},
 				columns: [
 					{ data: 'id', name: 'id' },
           { data: 'laporan', name: 'laporan'},
           { data: 'nama_laporan', name: 'nama_laporan'},
-					{ data: 'description', name: 'description' },
           { data: 'tipe_laporan', name: 'tipe_laporan' },
-					{ data: 'tahun', name: 'tahun' },
+					{ data: 'tanggal', name: 'tanggal' },
 					{ data: 'action', name: 'action' },
 				]
 			});
