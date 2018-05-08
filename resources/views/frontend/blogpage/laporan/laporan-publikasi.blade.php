@@ -14,15 +14,20 @@
           <p>laporan triwulan periode ke :</p>
           <div class="container">
             <div class="form-group">
-              @for ($i = 0; $i <= 4; $i++)
-              <div class="card-header flip">
-                <h5 class="mb-0">
-                    <i class="fa fa-angle-down"></i>
-                    {{date('F  Y', strtotime($publikasis->tanggal))}}
-                </h5>
-              </div>
-              <div class="panel"><a href="{{ asset('img/laporan/kelola/' . $test)}}">{{ $test1 }}</a></div>
-            @endfor
+                @foreach ($publikasis as $publikasi)
+                <div class="card-header flip">
+                    <h5 class="mb-0">
+                        <i class="fa fa-angle-down"></i>
+                        {{date('F  Y', strtotime($publikasi->tanggal))}}
+                    </h5>
+                  </div>
+                  <div class="panel">
+                    <p><a href="{{ asset('img/laporan/kelola/' . $publikasi->laporanpertama)}}">{{ $publikasi->nama_laporanpertama }}</a></p>
+                    <p><a href="{{ asset('img/laporan/kelola/' . $publikasi->laporankedua)}}">{{ $publikasi->nama_laporankedua }}</a></p>
+                    <p><a href="{{ asset('img/laporan/kelola/' . $publikasi->laporanketiga)}}">{{ $publikasi->nama_laporanketiga }}</a></p>
+                    <p><a href="{{ asset('img/laporan/kelola/' . $publikasi->laporankeempat)}}">{{ $publikasi->nama_laporankeempat }}</a></p>
+                  </div>
+                @endforeach
               </div>
         </main>
         <aside class="col-lg-4">
