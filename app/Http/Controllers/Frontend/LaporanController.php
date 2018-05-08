@@ -20,7 +20,6 @@ class LaporanController extends Controller
     {
         $post = DB::table('posts')->select('category')->paginate(5);
         $publikasis= Publikasi::all();
-        dd($publikasis);
         return view('frontend.blogpage.laporan.laporan-publikasi',compact('post','publikasis'));
     }
 
